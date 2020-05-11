@@ -30,13 +30,14 @@ END_HEADER		=			'\033[0m'
 #############################################################################################
 .DEFAULT: $(NAME)
 
+
 all: $(NAME)
+
 
 $(NAME):
 	@printf $(HEADER)"Compiling $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@cp $(PY_NAME) $(NAME)
 	@chmod u+x $(NAME)
-
 
 
 tests_run:
