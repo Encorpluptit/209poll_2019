@@ -1,6 +1,7 @@
 from sys import argv
 from Poll import Poll
 
+
 EXIT_ERROR = 84
 
 
@@ -11,7 +12,8 @@ def main():
         Poll.print_help(EXIT_ERROR)
     try:
         poll = Poll(int(argv[1]), int(argv[2]), float(argv[3]))
-        poll.run()
+        poll.calc_variance()
+        poll.print_results()
     except ValueError:
         exit(EXIT_ERROR)
 
