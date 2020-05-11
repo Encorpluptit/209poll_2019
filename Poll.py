@@ -26,7 +26,7 @@ class Poll:
     def print_results(self):
         print(f"Population Size:\t\t{self.p_size}")
         print(f"Sample Size:\t\t\t{self.s_size}")
-        print(f"Voting intentions:\t\t{self.p}")
+        print(f"Voting intentions:\t\t{self.p}%")
         print(f'Variance:\t\t\t\t{self.var:.6f}')
         print(f"95% confidence interval: [{max(self.p - self.ci95, 0):.2f}%; {min(self.p + self.ci95, 100):.2f}%]")
         print(f"99% confidence interval: [{max(self.p - self.ci99, 0):.2f}%; {min(self.p + self.ci99, 100):.2f}%]")
