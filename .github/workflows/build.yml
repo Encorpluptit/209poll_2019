@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    container: docker://epitechcontent/epitest-docker
+    container: docker://epitechcontent/epitest-docker
 
     steps:
       - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
       - name: Upload Coverage
         env:
           CODECOV_TOKEN: "0dca2275-7080-4e3a-9438-b14a8b727399"
-        run: bash <(curl -s https://codecov.io/bash)
+        run: curl -s https://codecov.io/bash | bash
 
   blih:
     runs-on: ubuntu-latest
