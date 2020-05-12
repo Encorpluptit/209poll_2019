@@ -11,7 +11,7 @@ NAME			=	209poll
 
 MAIN			=	main.go
 
-LANGUAGE		=	Python
+LANGUAGE		=	Go
 
 #############################################################################################
 
@@ -32,7 +32,7 @@ $(NAME):
 
 
 tests_run:
-	@printf $(HEADER)"Launching $(LANGUAGE) Unit Tests\n"$(END_HEADER)
+	@printf $(HEADER)"Launching $(LANGUAGE) Tests\n"$(END_HEADER)
 	@./gotest -v -coverpkg=./... ./tests
 
 
@@ -40,7 +40,8 @@ clean:
 
 
 fclean:
-	@(RM) $(NAME)
+	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
+	@$(RM) $(NAME)
 
 
 re: fclean all
