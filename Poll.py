@@ -24,7 +24,7 @@ class Poll:
             "DESCRIPTION:\n"
             "\tpSize\tsize of the population\n"
             "\tsSize\tsize of the sample (supposed to be representative)\n"
-            "\tp\t\tpercentage of voting intentions for a specific candidate"
+            "\tp\tpercentage of voting intentions for a specific candidate"
         )
         exit(exit_code)
 

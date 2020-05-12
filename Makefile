@@ -41,7 +41,7 @@ $(NAME):
 
 
 tests_run:
-	@printf $(HEADER)"Launching Python Unit Tests\n"$(END_HEADER)
+	@printf $(HEADER)"Launching Python Tests\n"$(END_HEADER)
 	@-python3 -m pytest -v --cov=Poll tests/tests.py
 	@-$(MAKE) -s -C $(GO_PATH) tests_run
 	@-$(MAKE) -s -C $(HASKELL_PATH) tests_run
@@ -52,6 +52,7 @@ tests_run:
 clean:
 
 fclean:
+	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
 
 re: fclean all
