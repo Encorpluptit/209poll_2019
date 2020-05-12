@@ -17,8 +17,8 @@ func InitPoll(args []string) (*Poll, *Error) {
 	}
 
 	return &Poll{
-		pSize: pSize,
-		sSize: sSize,
-		p:     p,
+		PSize: pSize,
+		SSize: sSize,
+		P:     p,
 	}, nil
 }

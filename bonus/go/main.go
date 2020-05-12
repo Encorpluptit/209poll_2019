@@ -8,7 +8,7 @@ import (
 
 func main() {
 	args := os.Args
-	err := poll.CheckArgv(args)
+	err := poll.CheckArgv(args[1:])
 	if err != nil {
 		poll.PrintHelp(args[0], err)
 	}
