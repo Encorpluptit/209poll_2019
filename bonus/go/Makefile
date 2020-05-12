@@ -32,8 +32,9 @@ $(NAME):
 
 
 tests_run:
-	@printf $(HEADER)"Launching $(LANGUAGE) Tests\n"$(END_HEADER)
-	@./gotest -v -coverpkg=./... ./tests
+	@python3 -c "print($(HEADER) + '='*120 + $(END_HEADER))"
+	@printf $(HEADER)"Launching $(LANGUAGE) Tests\n\n"$(END_HEADER)
+	@./tests/gotest -v -coverpkg=./... ./tests/unit
 
 
 clean:

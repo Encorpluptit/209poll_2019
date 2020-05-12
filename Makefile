@@ -40,16 +40,19 @@ review: $(NAME)
 
 
 $(NAME):
+	@python3 -c "print($(HEADER) + '='*120 + $(END_HEADER))"
 	@printf $(HEADER)"Compiling $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@cp $(PY_NAME) $(NAME)
 	@chmod u+x $(NAME)
 
 
 tests_run:
-	@printf $(HEADER)"Launching Python Tests\n"$(END_HEADER)
-	@printf $(HEADER)"Launching Functionnals Tests\n"$(END_HEADER)
-	@-./tests/jenrik tests/test_204ducks.toml
+	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
+	@printf $(HEADER)"Launching Python Tests\n\n"$(END_HEADER)
 	@-python3 -m pytest -v --cov=Poll tests/tests.py
+	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
+	@printf $(HEADER)"Launching Functionnals Tests\n\n"$(END_HEADER)
+	@-./tests/jenrik tests/test_204ducks.toml
 
 
 all_tests: tests_run
