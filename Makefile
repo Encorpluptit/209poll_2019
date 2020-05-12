@@ -32,6 +32,8 @@ END_HEADER		=			'\033[0m'
 
 
 all: $(NAME)
+
+review: $(NAME)
 	@-$(MAKE) -s -C $(GO_PATH) re
 	@-$(MAKE) -s -C $(HASKELL_PATH) re
 	@-$(MAKE) -s -C $(C_PATH) re
@@ -69,13 +71,13 @@ c_tests_run:
 
 
 clean:
-	@$(RM) .pytest_cache
+	@$(RM) -rd .pytest_cache
 	@$(RM) .coverage
 
 fclean: clean
 	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all $(NAME) clean fclean re tests_run
