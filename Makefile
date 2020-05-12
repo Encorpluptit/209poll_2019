@@ -11,7 +11,7 @@ NAME			=	209poll
 
 LANGUAGE		=	Python
 
-PY_NAME			=	209poll.py
+PY_NAME			=	poll.py
 
 BONUS_PATH		=	bonus
 

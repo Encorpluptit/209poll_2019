@@ -7,7 +7,7 @@
 ##
 
 from sys import argv
-from Poll import Poll
+from PollClass import Poll
 
 
 EXIT_ERROR = 84

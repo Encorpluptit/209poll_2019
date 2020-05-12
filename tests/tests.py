@@ -6,6 +6,6 @@
 ## Source file for Python tests.
 ##
 
-from Poll import Poll
+from PollClass import Poll
+from poll import main
 
-module_poll = __import__("209poll")
