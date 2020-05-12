@@ -23,6 +23,14 @@ jobs:
       - name: Re Build
         run: make re
 
+      - name: Launching Tests
+        run: make tests_run
+
+      - name: Upload Coverage
+        env:
+          CODECOV_TOKEN: "0dca2275-7080-4e3a-9438-b14a8b727399"
+        run: bash <(curl -s https://codecov.io/bash)
+
   blih:
     runs-on: ubuntu-latest
     needs: build
