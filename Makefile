@@ -13,7 +13,7 @@ LANGUAGE		=	Python
 
 PY_NAME			=	209poll.py
 
-BONUS_PATH		=	BONUS
+BONUS_PATH		=	bonus
 
 GO_PATH			=	$(BONUS_PATH)/go
 
@@ -32,6 +32,9 @@ END_HEADER		=			'\033[0m'
 
 
 all: $(NAME)
+	@-$(MAKE) -s -C $(GO_PATH) re
+	@-$(MAKE) -s -C $(HASKELL_PATH) re
+	@-$(MAKE) -s -C $(C_PATH) re
 
 
 $(NAME):
@@ -42,19 +45,37 @@ $(NAME):
 
 tests_run:
 	@printf $(HEADER)"Launching Python Tests\n"$(END_HEADER)
-	@-python3 -m pytest -v --cov=Poll tests/tests.py
-	@-$(MAKE) -s -C $(GO_PATH) tests_run
-	@-$(MAKE) -s -C $(HASKELL_PATH) tests_run
-	@-$(MAKE) -s -C $(C_PATH) tests_run
 	@printf $(HEADER)"Launching Functionnals Tests\n"$(END_HEADER)
 	@-./tests/jenrik tests/test_204ducks.toml
+	@-python3 -m pytest -v --cov=Poll tests/tests.py
+
+
+all_tests: tests_run
+	@-$(MAKE) -s go_tests_run
+	@-$(MAKE) -s haskell_tests_run
+	@-$(MAKE) -s c_tests_run
+
+
+go_tests_run:
+	@-$(MAKE) -s -C $(GO_PATH) tests_run
+
+
+haskell_tests_run:
+	@-$(MAKE) -s -C $(HASKELL_PATH) tests_run
+
+
+c_tests_run:
+	@-$(MAKE) -s -C $(C_PATH) tests_run
+
 
 clean:
+	@$(RM) .pytest_cache
+	@$(RM) .coverage
 
-fclean:
+fclean: clean
 	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
 
 .PHONY: all $(NAME) clean fclean re tests_run

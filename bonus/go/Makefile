@@ -39,7 +39,7 @@ tests_run:
 clean:
 
 
-fclean:
+fclean: clean
 	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
 
