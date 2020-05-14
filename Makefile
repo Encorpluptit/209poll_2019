@@ -22,6 +22,8 @@ HASKELL_PATH	=	$(BONUS_PATH)/haskell
 
 C_PATH			=	$(BONUS_PATH)/c
 
+COV_FILE		=	.coverage
+
 #############################################################################################
 
 HEADER			=			'\033[95m'
@@ -105,7 +107,7 @@ clean:
 fclean: clean
 	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
-
+	@$(RM) $(COV_FILE)
 
 re: fclean all
 
