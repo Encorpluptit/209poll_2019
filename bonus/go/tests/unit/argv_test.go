@@ -1,4 +1,4 @@
-package poll_unit_tests
+package poll
 
 import (
 	"Poll/poll"

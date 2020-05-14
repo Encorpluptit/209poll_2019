@@ -36,14 +36,13 @@ tests_run: unit_tests func_tests
 unit_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Launching $(LANGUAGE) Unit Tests\n\n"$(END_HEADER)
-	@./tests/gotest -v -coverpkg=./... ./tests/unit
+	@./tests/gotest -v -coverpkg=./poll ./tests/unit
 	@printf "\n\n"
 
 
 func_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Launching $(LANGUAGE) Functionals Tests\n\n"$(END_HEADER)
-	@./tests/gotest -v -coverpkg=./... ./tests/unit
 	@printf "\n\n"
 
 

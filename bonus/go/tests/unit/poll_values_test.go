@@ -1,25 +1,9 @@
-package poll_unit_tests
+package poll
 
 import (
 	"Poll/poll"
-	"reflect"
 	"testing"
 )
-
-func instancePollEq(res *poll.Poll, exp *poll.Poll, t *testing.T) bool {
-	v := reflect.ValueOf(*res)
-	w := reflect.ValueOf(*exp)
-
-	for i := 0; i < v.NumField(); i++ {
-		if !v.Field(i).CanInterface() || !w.Field(i).CanInterface() {
-			continue
-		}
-		if v.Field(i).Interface() != w.Field(i).Interface() {
-			return false
-		}
-	}
-	return true
-}
 
 func TestInitPoll(t *testing.T) {
 	tables := []struct {
