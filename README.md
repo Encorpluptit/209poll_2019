@@ -10,18 +10,27 @@ Epitech Project
 - ### General
     - Python
     - [Go](#go)
-    - Haskell
+    - [Haskell](#haskell)
     - C
+    - [Codecov](#codecov-coverage) ([Official Site](https://codecov.io/)) in CI.
     - Markdown
 
 - ### Python
-    - Python Tests with Pytests FrameWork.
+    - [Python Tests with PyTests FrameWork.](https://www.python-course.eu/python3_pytest.php)
     - 
 
 - ### Go
-    - Use of Go routine and WaitGroup :
+    - <ins>Use of Go routine and WaitGroup</ins> :
         - [Go Routine](https://tutorialedge.net/golang/concurrency-with-golang-goroutines/)
         - [Wait Group](https://tutorialedge.net/golang/go-waitgroup-tutorial/)
-    - Upgrade skills on go coverage :
+    - <ins>Upgrade skills on go coverage</ins> :
         - [Introduction and CI Integration](https://blog.seriesci.com/how-to-measure-code-coverage-in-go/)
         - [Cover Tool](https://blog.golang.org/cover)
+        - [Testing Race Detector](https://blog.golang.org/race-detector) (Non-synchronised data)
+    - Haskell
+    - <ins>Haskelllol</ins> :
+    - <ins>C</ins> :
+    - #### <ins>CodeCov Coverage</ins> :
+        - [Python](https://github.com/codecov/example-python)
+        - [Go](https://github.com/codecov/example-go)
+    
