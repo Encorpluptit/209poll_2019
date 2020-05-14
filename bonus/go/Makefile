@@ -20,6 +20,7 @@ HEADER			=	'\033[95m'
 END_HEADER		=	'\033[0m'
 
 #############################################################################################
+
 .DEFAULT: $(NAME)
 
 
@@ -30,11 +31,20 @@ $(NAME):
 	@printf $(HEADER)"Compiling $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@go build -o $(NAME) $(MAIN)
 
+tests_run: unit_tests func_tests
 
-tests_run:
-	@python3 -c "print($(HEADER) + '='*120 + $(END_HEADER))"
-	@printf $(HEADER)"Launching $(LANGUAGE) Tests\n\n"$(END_HEADER)
+unit_tests:
+	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
+	@printf $(HEADER)"Launching $(LANGUAGE) Unit Tests\n\n"$(END_HEADER)
 	@./tests/gotest -v -coverpkg=./... ./tests/unit
+	@printf "\n\n"
+
+
+func_tests:
+	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
+	@printf $(HEADER)"Launching $(LANGUAGE) Functionals Tests\n\n"$(END_HEADER)
+	@./tests/gotest -v -coverpkg=./... ./tests/unit
+	@printf "\n\n"
 
 
 clean:

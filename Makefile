@@ -46,13 +46,21 @@ $(NAME):
 	@chmod u+x $(NAME)
 
 
-tests_run:
+tests_run: unit_tests func_tests
+
+
+unit_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Launching Python Tests\n\n"$(END_HEADER)
 	@-python3 -m pytest -v --cov=Poll tests/tests.py
+	@printf "\n\n"
+
+
+func_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Launching Functionnals Tests\n\n"$(END_HEADER)
 	@-./tests/jenrik tests/test_204ducks.toml
+	@printf "\n\n"
 
 
 all_tests: tests_run
