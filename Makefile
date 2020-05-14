@@ -7,6 +7,7 @@
 
 
 #############################################################################################
+
 NAME			=	209poll
 
 LANGUAGE		=	Python
@@ -33,6 +34,7 @@ END_HEADER		=			'\033[0m'
 
 all: $(NAME)
 
+
 review: $(NAME)
 	@-$(MAKE) -s -C $(GO_PATH) re
 	@-$(MAKE) -s -C $(HASKELL_PATH) re
@@ -47,6 +49,20 @@ $(NAME):
 
 
 tests_run: unit_tests func_tests
+
+
+all_unit_tests: review
+	@-$(MAKE) -s  unit_tests
+	@-$(MAKE) -s -C $(GO_PATH) unit_tests
+	@-$(MAKE) -s -C $(HASKELL_PATH) unit_tests
+	@-$(MAKE) -s -C $(C_PATH) unit_tests
+
+
+all_func_tests: review
+	@$(MAKE) -s  func_tests
+	@$(MAKE) -s -C $(GO_PATH) func_tests
+	@-$(MAKE) -s -C $(HASKELL_PATH) func_tests
+	@-$(MAKE) -s -C $(C_PATH) func_tests
 
 
 unit_tests:
@@ -85,10 +101,13 @@ clean:
 	@$(RM) -rd .pytest_cache
 	@$(RM) .coverage
 
+
 fclean: clean
 	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
 
+
 re: fclean all
+
 
 .PHONY: all $(NAME) clean fclean re tests_run

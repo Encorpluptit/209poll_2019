@@ -31,6 +31,7 @@ $(NAME):
 	@printf $(HEADER)"Compiling $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@go build -o $(NAME) $(MAIN)
 
+
 tests_run: unit_tests func_tests
 
 unit_tests:
