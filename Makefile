@@ -68,7 +68,7 @@ all_func_tests: review
 unit_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Launching Python Tests\n\n"$(END_HEADER)
-	@-python3 -m pytest -v --cov=Poll tests/tests.py
+	@-python3 -m pytest -v --cov=PollClass --cov=poll tests/tests.py
 	@printf "\n\n"
 
 

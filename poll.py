@@ -13,13 +13,16 @@ from PollClass import Poll
 EXIT_ERROR = 84
 
 
-def main():
-    if "-h" in argv or "--help" in argv:
+def main(args):
+    if "-h" in args or "--help" in args:
         Poll.print_help()
-    if len(argv) != 4:
+    if len(args) != 4:
         Poll.print_help(EXIT_ERROR)
     try:
-        poll = Poll(int(argv[1]), int(argv[2]), float(argv[3]))
+        p_size, s_size, p = int(args[1]), int(args[2]), float(args[3])
+        if p_size < 0 or s_size < 0 or not (0 < p < 100):
+            raise ValueError
+        poll = Poll(int(args[1]), int(args[2]), float(args[3]))
         poll.calc_variance()
         poll.print_results()
     except ValueError:
@@ -27,4 +30,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(argv)

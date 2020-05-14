@@ -35,8 +35,3 @@ func (p *Poll) Print() {
 	fmt.Printf("99%% confidence interval:\t[%.2f%%; %.2f%%]\n",
 		math.Max(p.P-p.Ci99, 0), math.Min(p.P+p.Ci99, 100))
 }
-
-// For unit Testing
-func (p *Poll) getVariance() float64 {
-	return p.Variance
-}

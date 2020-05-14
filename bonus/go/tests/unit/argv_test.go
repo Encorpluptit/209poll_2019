@@ -40,6 +40,7 @@ func TestInitPollError(t *testing.T) {
 		{[]string{"10000", "500", "42.24."}, &poll.FloatError},
 		{[]string{"10000", "500", "42.24a"}, &poll.FloatError},
 		{[]string{"10000", "500", "101"}, &poll.FloatError},
+		{[]string{"10000", "500", "-1"}, &poll.FloatError},
 	}
 
 	for _, table := range tables {
