@@ -2,8 +2,24 @@ package poll
 
 import (
 	"Poll/poll"
+	"reflect"
 	"testing"
 )
+
+func instancePollEq(res *poll.Poll, exp *poll.Poll, t *testing.T) bool {
+	v := reflect.ValueOf(*res)
+	w := reflect.ValueOf(*exp)
+
+	for i := 0; i < v.NumField(); i++ {
+		if !v.Field(i).CanInterface() || !w.Field(i).CanInterface() {
+			continue
+		}
+		if v.Field(i).Interface() != w.Field(i).Interface() {
+			return false
+		}
+	}
+	return true
+}
 
 func TestInitPoll(t *testing.T) {
 	tables := []struct {
@@ -21,7 +37,7 @@ func TestInitPoll(t *testing.T) {
 		res, err := poll.InitPoll(table.arg)
 		if err != nil {
 			t.Errorf(
-				"For argument(s) [%#v]), Error is not nill, got [%v]", table.arg, err)
+				"For argument(s) [%#v]), Error is not nil, got [%v]", table.arg, err)
 		}
 		if !instancePollEq(res, table.exp, t) {
 			t.Errorf(

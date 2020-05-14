@@ -37,6 +37,7 @@ unit_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Launching $(LANGUAGE) Unit Tests\n\n"$(END_HEADER)
 	@./tests/gotest -v -coverpkg=./poll ./tests/unit
+#@./tests/gotest -v -coverpkg=./... ./tests/unit
 	@printf "\n\n"
 
 
