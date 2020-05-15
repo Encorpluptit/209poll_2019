@@ -28,6 +28,8 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Args
+      Help
   other-modules:
       Paths_209poll
   hs-source-dirs:
