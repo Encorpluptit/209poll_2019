@@ -25,7 +25,7 @@ jobs:
         run: make re
 
       - name: Launching Tests
-        run: make all_unit_tests
+        run: sudo make all_unit_tests
 
       - name: Upload Coverage
         env:
