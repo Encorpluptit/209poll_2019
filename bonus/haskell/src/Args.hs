@@ -18,16 +18,16 @@ data Options =
         { pSize :: Int
         , sSize :: Int
         , p     :: Float
-        }deriving(Eq)
+        }
+    deriving (Eq)
+
 --        }deriving(Eq, Show)
 instance Show Options where
-    show (Options pSize sSize p) = show pSize >> show sSize >> show p
---    show (Options pSize sSize p) = map show (pSize, sSize, p)
+    show (Options pSize sSize p) = foldl1 (\x y -> x ++ " " ++ y) [show pSize, show sSize, show p]
 
 --instance Eq Options where
 --    Options pSizeX sSizeX pX == Options pSizeY sSizeY pY = pSizeX == pSizeY && sSizeX == sSizeY && pX == pY
 --    Options pSizeX sSizeX pX /= Options pSizeY sSizeY pY = pSizeX /= pSizeY || sSizeX /= sSizeY || pX /= pY
-
 wrongOptions :: Options
 --wrongOptions = Options 1 (-1) (-1)
 wrongOptions = Options {pSize = -1, sSize = -1, p = -1}

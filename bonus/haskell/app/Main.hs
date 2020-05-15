@@ -17,7 +17,7 @@ main = getArgs >>= handleArgs . checkArgs
   where
     handleArgs (HELP, _)   = exitHelp
     handleArgs (NOK, _)    = exitErr
---    handleArgs (_, Options pSize sSize p) = 
+--    handleArgs (_, Options pSize sSize p) =
     exitHelp = help "" >> exit
     exit = exitWith $ ExitFailure 0
     exitErr = exitWith $ ExitFailure 84

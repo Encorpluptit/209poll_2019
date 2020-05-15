@@ -7,6 +7,7 @@
 
 
 package = poll
+binary = 209poll
 
 
 stack_yaml = STACK_YAML="stack.yaml"
@@ -31,7 +32,7 @@ fclean: clean
 
 build:
 	@$(stack) build $(package)
-	@cp $(executable)/bin/poll ./209poll
+	@cp $(executable)/bin/poll ./$(binary)
 
 build-dirty:
 	$(stack) build --ghc-options=-fforce-recomp $(package)
@@ -40,7 +41,7 @@ build-profile:
 	$(stack) --work-dir .stack-work-profiling --profile build
 
 run:
-	$(stack) build --fast && $(stack) exec -- $(package)
+	$(stack) build --fast && $(stack) exec -- $(binary)
 
 install:
 	$(stack) install
