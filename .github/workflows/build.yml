@@ -15,8 +15,6 @@ jobs:
         with:
           enable-stack: true
           stack-no-global: true
-          ghc-version: ${{ matrix.ghc }}
-          cabal-version: ${{ matrix.cabal }}
 
       - name: Install dependencies
         run: |
