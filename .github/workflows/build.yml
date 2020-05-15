@@ -19,8 +19,8 @@ jobs:
       #     stack-version: 'latest'
       #     stack-no-global: true
 
-      - name: Set Stack PATH
-        run: echo ::set-env name=STACK_ROOT::$(pwd)/stack
+      # - name: Set Stack PATH
+      #   run: echo ::set-env name=STACK_ROOT::$(pwd)/stack
 
       - name: Install dependencies
         run: |
