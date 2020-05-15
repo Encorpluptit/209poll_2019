@@ -30,6 +30,7 @@ all: $(NAME)
 
 
 $(NAME):
+	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
 	@printf $(HEADER)"Compiling $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@go build -o $(NAME) $(MAIN)
 
