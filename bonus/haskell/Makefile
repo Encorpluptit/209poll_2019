@@ -5,7 +5,9 @@
 ## Makefile
 ##
 
+
 package = 209poll
+
 
 stack_yaml = STACK_YAML="stack.yaml"
 stack = $(stack_yaml) stack
@@ -60,6 +62,7 @@ sign:
 	@echo ""
 	@echo "*******************"
 	@echo "* Damien Bernard  *"
+	@echo "* Killian Clette  *"
 	@echo "*                 *"
 	@echo "*  Epitech 2020   *"
 	@echo "*******************"
