@@ -18,6 +18,11 @@ all: build sign
 
 re: all
 
+#profiling:
+#	stack build --profile
+#	stack run --profile 2 0.8 your_file -- +RTS -p
+#	cat imageCompressor.prof
+
 clean:
 	@echo "Cleaning Stack Project"
 
