@@ -44,5 +44,6 @@ tests:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    allow-different-user: true
     dependencies:
     - 209poll
