@@ -13,7 +13,7 @@ binary = 209poll
 stack_yaml = STACK_YAML="stack.yaml"
 stack = $(stack_yaml) stack
 executable := $(shell stack path --local-install-root)
-profiling_executable := $(shell stack path --local-install-root)
+profiling_executable := $(shell stack --work-dir .stack-work-profiling path --local-install-root)
 
 
 all: build sign
@@ -22,11 +22,11 @@ re: all
 
 unit_tests:
 	#$(stack) test $(package) --work-dir .stack-work-profiling
-	stack test $(package) --work-dir .stack-work-profiling
+	stack --work-dir . test $(package)
 #$(stack) test $(package) --work-dir .stack-work-profiling
 
 profiling: build-profile
-	stack --work-dir .stack-work-profiling path --local-install-root
+	$(stack) --work-dir .stack-work-profiling path --local-install-root
 	./test/profiling/profile.sh
 #	@cp $(profiling_executable)/bin/poll ./$(binary)
 #	stack run --profile 2 0.8 your_file -- +RTS -p
