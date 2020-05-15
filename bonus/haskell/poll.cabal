@@ -6,7 +6,7 @@ cabal-version: 1.12
 --
 -- hash: 8aa5e2a6f205431a06e721e8404d9d1cbfecf385f7efd863e1ae5aa84959695d
 
-name:           209poll
+name:           poll
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/Github username here/209poll#readme>
 homepage:       https://github.com/Encorpluptit/209poll#readme
@@ -46,7 +46,7 @@ executable poll
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      209poll
+      poll
     , base >=4.7 && <5
   default-language: Haskell2010
 
@@ -59,6 +59,6 @@ test-suite poll-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      209poll
+      poll
     , base >=4.7 && <5
   default-language: Haskell2010

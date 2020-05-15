@@ -6,7 +6,7 @@
 ##
 
 
-package = 209poll
+package = poll
 
 
 stack_yaml = STACK_YAML="stack.yaml"
