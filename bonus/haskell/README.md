@@ -1,8 +1,19 @@
-# 209poll
+# Haskell Project
+
+## IntelliJ (repository creation)
+
+ - lol
+ - mdr
+
+## Repository setup.
+ - Copy Makefile
+ - Modify variable for Project name and Binary Name in Makefile
+ - Copy **Profiling** folder into **test** folder
+
 
 ## Package
 
-change name for "executables" and tests in package.yaml
+ - change name for "executables" and tests in package.yaml
 
 ## Stack
 change resolver (WARNING: break IntelliJ):
@@ -50,3 +61,4 @@ common default
     build-depends:       base >= 4.7 && < 5
     ghc-options:         -Wall
 ```
+ - remove defaulted options

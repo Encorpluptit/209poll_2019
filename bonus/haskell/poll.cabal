@@ -38,7 +38,7 @@ library
       Args
       Help
   other-modules:
-      Paths_209poll
+      Paths_poll
   hs-source-dirs:
       src
   build-depends:
@@ -48,7 +48,7 @@ library
 executable poll
   main-is: Main.hs
   other-modules:
-      Paths_209poll
+      Paths_poll
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
@@ -61,7 +61,7 @@ test-suite poll-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_209poll
+      Paths_poll
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
