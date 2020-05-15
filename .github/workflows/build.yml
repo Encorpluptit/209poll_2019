@@ -11,6 +11,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-haskell@v1.1
+        with:
+          enable-stack: true
+          stack-no-global: true
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: ${{ matrix.cabal }}
 
       - name: Install dependencies
         run: |
@@ -25,12 +31,6 @@ jobs:
         run: make re
 
       - name: Launching Tests
-        uses: actions/setup-haskell@v1.1
-        with:
-          enable-stack: true
-          stack-no-global: true
-          ghc-version: ${{ matrix.ghc }}
-          cabal-version: ${{ matrix.cabal }}
         run: make all_unit_tests
 
       - name: Upload Coverage
