@@ -20,7 +20,7 @@ all: build sign
 
 re: all
 
-tests_run:
+unit_tests:
 	$(stack) test $(package) --work-dir .stack-work-profiling
 #$(stack) test $(package) --work-dir .stack-work-profiling
 
