@@ -69,6 +69,7 @@ func_tests:
 all_unit_tests: review
 	@-$(MAKE) -s  unit_tests
 	@-$(MAKE) -s -C $(GO_PATH) unit_tests
+	@-$(MAKE) -s -C $(HASKELL_PATH) install
 	@-$(MAKE) -s -C $(HASKELL_PATH) unit_tests
 	@-$(MAKE) -s -C $(C_PATH) unit_tests
 

@@ -8,16 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: docker://epitechcontent/epitest-docker
-    env:
-      STACK_ROOT: "."
+    # env:
+    #   STACK_ROOT: "."
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-haskell@v1.1
-        with:
-          enable-stack: true
-          stack-version: 'latest'
-          stack-no-global: true
+      # - uses: actions/setup-haskell@v1.1
+      #   with:
+      #     enable-stack: true
+      #     stack-version: 'latest'
+      #     stack-no-global: true
+
+      - name: Set Stack PATH
+        run: echo ::set-env name=STACK_ROOT::$(pwd)/stack
 
       - name: Install dependencies
         run: |
