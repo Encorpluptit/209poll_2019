@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: docker://epitechcontent/epitest-docker
+    env:
+      STACK_ROOT: "."
 
     steps:
       - uses: actions/checkout@v2
