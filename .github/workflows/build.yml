@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-haskell@v1.1
-        with:
-          enable-stack: true
-          stack-no-global: true
+      # - uses: actions/setup-haskell@v1.1
+      #   with:
+      #     enable-stack: true
+      #     stack-no-global: true
 
       - name: Install dependencies
         run: |
