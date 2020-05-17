@@ -23,7 +23,7 @@ data Options =
 
 --        }deriving(Eq, Show)
 instance Show Options where
-    show (Options pSize sSize p) = foldl1 (\x y -> x ++ " " ++ y) [show pSize, show sSize, show p]
+    show (Options _pSize _sSize _p) = foldl1 (\x y -> x ++ " " ++ y) [show _pSize, show _sSize, show _p]
 
 --instance Eq Options where
 --    Options pSizeX sSizeX pX == Options pSizeY sSizeY pY = pSizeX == pSizeY && sSizeX == sSizeY && pX == pY
@@ -34,14 +34,14 @@ wrongOptions = Options {pSize = -1, sSize = -1, p = -1}
 
 readInt :: String -> Int
 readInt s
-    | isNothing nb = 0
+    | isNothing nb = -1
     | otherwise = fromJust nb
   where
     nb = readMaybe s :: Maybe Int
 
 readFloat :: String -> Float
 readFloat s
-    | isNothing nb = 0
+    | isNothing nb = -1
     | otherwise = fromJust nb
   where
     nb = readMaybe s :: Maybe Float
@@ -51,12 +51,12 @@ checkArgs av
     | "--help" `elem` av = (HELP, wrongOptions)
     | "-h" `elem` av = (HELP, wrongOptions)
 checkArgs [pSzArg, sSzArg, pArg]
-    | pSize < 0 = (NOK, wrongOptions)
-    | sSize < 0 = (NOK, wrongOptions)
-    | p < 0 || p > 100 = (NOK, wrongOptions)
-    | otherwise = (OK, Options pSize sSize p)
+    | _pSize < 0 = (NOK, wrongOptions)
+    | _sSize < 0 = (NOK, wrongOptions)
+    | _p < 0 || _p > 100 = (NOK, wrongOptions)
+    | otherwise = (OK, Options _pSize _sSize _p)
   where
-    pSize = readInt pSzArg
-    sSize = readInt sSzArg
-    p = readFloat pArg
+    _pSize = readInt pSzArg
+    _sSize = readInt sSzArg
+    _p = readFloat pArg
 checkArgs _ = (NOK, wrongOptions)

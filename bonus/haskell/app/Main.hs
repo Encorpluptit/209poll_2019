@@ -3,7 +3,7 @@ module Main where
 ------------------------
 -- Imported Lib
 import           System.Environment
-import           System.Exit        (ExitCode (ExitFailure), exitWith)
+import           System.Exit        (ExitCode (ExitFailure, ExitSuccess), exitWith)
 
 ------------------------
 -- Project
@@ -17,7 +17,7 @@ main = getArgs >>= handleArgs . checkArgs
   where
     handleArgs (HELP, _)   = exitHelp
     handleArgs (NOK, _)    = exitErr
---    handleArgs (_, Options pSize sSize p) =
-    exitHelp = help "" >> exit
-    exit = exitWith $ ExitFailure 0
+    handleArgs (_, Options pSize sSize p) = putStrLn "good"
+    exitHelp = getProgName >>= help >> exit
+    exit = exitWith $ ExitSuccess
     exitErr = exitWith $ ExitFailure 84

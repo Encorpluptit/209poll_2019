@@ -22,7 +22,7 @@ re: all
 
 unit_tests:
 	#$(stack) test $(package) --work-dir .stack-work-profiling
-	stack --work-dir . test $(package)
+	$(stack) --work-dir .stack-work-profiling test --coverage
 #$(stack) test $(package) --work-dir .stack-work-profiling
 
 profiling: build-profile
