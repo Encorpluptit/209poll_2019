@@ -1,0 +1,89 @@
+binary_path = "../209poll"
+
+[help]
+args = ["-h"]
+status = 0
+
+[no_args]
+args = []
+status = 84
+
+[too_many_args]
+args = ["10000", "500", "43.21", "4"]
+status = 84
+
+[not_enough_args]
+args = ["10000", "500"]
+status = 84
+
+[population_size_ex_1]
+args = ["10000", "500", "42.24"]
+status = 0
+pipe_stdout="| grep Population | cut -c '19-'"
+stdout="10000\n"
+
+[population_size_ex_2]
+args = ["10000", "100", "45"]
+status = 0
+pipe_stdout="| grep Population | cut -c '19-'"
+stdout="10000\n"
+
+[sample_ex_1]
+args = ["10000", "500", "42.24"]
+status = 0
+pipe_stdout="| grep Sample| cut -c '16-'"
+stdout="500\n"
+
+[sample_ex_2]
+args = ["10000", "100", "45"]
+status = 0
+pipe_stdout="| grep Sample | cut -c '16-'"
+stdout="100\n"
+
+[voting_intention_ex_1]
+args = ["10000", "500", "42.24"]
+status = 0
+pipe_stdout="| grep Voting | cut -c '21-'"
+stdout="42.24%\n"
+
+[voting_intention_ex_2]
+args = ["10000", "100", "45"]
+status = 0
+pipe_stdout="| grep Voting | cut -c '21-'"
+stdout="45.00%\n"
+
+[variance_ex_1]
+args = ["10000", "500", "42.24"]
+status = 0
+pipe_stdout="| grep Variance | cut -c '13-'"
+stdout="0.000464\n"
+
+[variance_ex_2]
+args = ["10000", "100", "45"]
+status = 0
+pipe_stdout="| grep Variance | cut -c '13-'"
+stdout="0.002450\n"
+
+[95_interval_ex_1]
+args = ["10000", "500", "42.24"]
+status = 0
+pipe_stdout="| grep '95% con' | cut -c '26-'"
+stdout="[38.02%; 46.46%]\n"
+
+[95_interval_ex_2]
+args = ["10000", "100", "45"]
+status = 0
+pipe_stdout="| grep '95% con' | cut -c '26-'"
+stdout="[35.30%; 54.70%]\n"
+
+[99_interval_ex_1]
+args = ["10000", "500", "42.24"]
+status = 0
+pipe_stdout="| grep '99% con' | cut -c '26-'"
+stdout="[36.68%; 47.80%]\n"
+
+[99_interval_ex_2]
+args = ["10000", "100", "45"]
+status = 0
+pipe_stdout="| grep '99% con' | cut -c '26-'"
+stdout="[32.23%; 57.77%]\n"

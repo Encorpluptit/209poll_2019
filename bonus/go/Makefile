@@ -49,9 +49,9 @@ unit_tests:
 
 func_tests:
 	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
-	@printf $(HEADER)"Launching $(LANGUAGE) Functionals Tests\n\n"$(END_HEADER)
+	@printf $(HEADER)"Launching Functionnals Tests\n\n"$(END_HEADER)
+	@-./tests/jenrik tests/test_209poll.toml
 	@printf "\n\n"
-
 
 clean:
 
