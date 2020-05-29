@@ -39,8 +39,8 @@ all: $(NAME)
 
 review: re
 	@-$(MAKE) -s -C $(GO_PATH) re
-	@-$(MAKE) -s -C $(HASKELL_PATH) re
-	@-$(MAKE) -s -C $(C_PATH) re
+# @-$(MAKE) -s -C $(HASKELL_PATH) re
+# @-$(MAKE) -s -C $(C_PATH) re
 
 
 $(NAME):
@@ -69,21 +69,21 @@ func_tests:
 all_unit_tests: review
 	@-$(MAKE) -s  unit_tests
 	@-$(MAKE) -s -C $(GO_PATH) unit_tests
-	@-$(MAKE) -s -C $(HASKELL_PATH) unit_tests
-	@-$(MAKE) -s -C $(C_PATH) unit_tests
+# @-$(MAKE) -s -C $(HASKELL_PATH) unit_tests
+# @-$(MAKE) -s -C $(C_PATH) unit_tests
 
 
 all_func_tests: review
 	@$(MAKE) -s  func_tests
 	@$(MAKE) -s -C $(GO_PATH) func_tests
-	@-$(MAKE) -s -C $(HASKELL_PATH) func_tests
-	@-$(MAKE) -s -C $(C_PATH) func_tests
+# @-$(MAKE) -s -C $(HASKELL_PATH) func_tests
+# @-$(MAKE) -s -C $(C_PATH) func_tests
 
 
 all_tests: tests_run
 	@-$(MAKE) -s go_tests_run
-	@-$(MAKE) -s haskell_tests_run
-	@-$(MAKE) -s c_tests_run
+# @-$(MAKE) -s haskell_tests_run
+# @-$(MAKE) -s c_tests_run
 
 
 go_tests_run:
