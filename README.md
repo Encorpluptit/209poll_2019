@@ -2,6 +2,8 @@
 [![codecov](https://codecov.io/gh/Encorpluptit/209poll_2019/branch/master/graph/badge.svg?token=ID0NHLIUAG)](https://codecov.io/gh/Encorpluptit/209poll_2019)
 
 # 209poll_2019
+
+### [Subject](Project/B-MAT-400_209poll.pdf) :
 The goal of this project is to compute the 95% and 99% confidence intervals, given (as arguments):
  - Population size.
  - Size of the sample of population.
@@ -30,7 +32,6 @@ People follows a Bernoulli process, and therefore that a binomial distribution (
 
 - ### Python
     - [Python Tests with PyTests FrameWork.](https://www.python-course.eu/python3_pytest.php)
-    - 
 
 - ### Go
     - <ins>Use of Go routine and WaitGroup</ins> :
@@ -40,6 +41,7 @@ People follows a Bernoulli process, and therefore that a binomial distribution (
         - [Introduction and CI Integration](https://blog.seriesci.com/how-to-measure-code-coverage-in-go/)
         - [Cover Tool](https://blog.golang.org/cover)
         - [Testing Race Detector](https://blog.golang.org/race-detector) (Non-synchronised data)
+
 - ### Haskell (Unfinished)
     - Argument management.
 
