@@ -20,8 +20,6 @@ GO_PATH			=	$(BONUS_PATH)/go
 
 HASKELL_PATH	=	$(BONUS_PATH)/haskell
 
-C_PATH			=	$(BONUS_PATH)/c
-
 COV_FILE		=	.coverage
 
 PY_CACHE		=	.pytest_cache
@@ -36,11 +34,13 @@ END_HEADER		=			'\033[0m'
 .DEFAULT: $(NAME)
 
 
-all: $(NAME)
+all: prez
 
 
-review: re
-	@-$(MAKE) -s -C $(GO_PATH) re
+prez: fclean
+	@-$(MAKE) -s $(NAME)
+	@-$(MAKE) -s -C $(GO_PATH)
+	@-$(MAKE) -s -C $(HASKELL_PATH)
 
 
 $(NAME):
@@ -66,12 +66,12 @@ func_tests:
 	@printf "\n\n"
 
 
-all_unit_tests: review
+all_unit_tests: prez
 	@-$(MAKE) -s  unit_tests
 	@-$(MAKE) -s -C $(GO_PATH) unit_tests
 
 
-all_func_tests: review
+all_func_tests: prez
 	@$(MAKE) -s  func_tests
 	@$(MAKE) -s -C $(GO_PATH) func_tests
 
@@ -96,10 +96,10 @@ clean:
 fclean: clean
 	@-$(MAKE) -s -C $(GO_PATH) fclean
 	@-$(MAKE) -s -C $(HASKELL_PATH) fclean
-	@-$(MAKE) -s -C $(C_PATH) fclean
 	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(RM) $(NAME)
-	@$(RM) $(COV_FILE)
+	@-$(RM) $(COV_FILE)
+	@-$(RM) -d $(COV_FILE)
 
 re: fclean all
 

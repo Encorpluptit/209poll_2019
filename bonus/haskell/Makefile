@@ -7,13 +7,21 @@
 
 
 package = poll
-binary = 209poll
+NAME = 209poll
 
 
-stack_yaml = STACK_YAML="stack.yaml"
-stack = $(stack_yaml) stack
-executable := $(shell stack path --local-install-root)
-profiling_executable := $(shell stack --work-dir .stack-work-profiling path --local-install-root)
+stack_yaml				=	STACK_YAML="stack.yaml"
+stack					=	$(stack_yaml) stack
+executable				:=	$(shell stack path --local-install-root)
+profiling_executable	:=	$(shell stack --work-dir .stack-work-profiling path --local-install-root)
+
+LANGUAGE		=			Haskell
+
+HEADER			=			'\033[95m'
+
+END_HEADER		=			'\033[0m'
+
+#############################################################################################
 
 
 all: build sign
@@ -28,14 +36,17 @@ profiling: build-profile
 	./test/profiling/profile.sh
 
 clean:
-	@echo "Cleaning Stack Project"
+	@printf $(HEADER)"Cleaning $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 
 fclean: clean
 	$(RM) $(package)
+	$(RM) $(NAME)
 
 build:
+	@python3 -c "print($(HEADER) + '*'*120 + $(END_HEADER))"
+	@printf $(HEADER)"Compiling $(NAME) <--> $(LANGUAGE)\n"$(END_HEADER)
 	@$(stack) build $(package)
-	@cp $(executable)/bin/poll ./$(binary)
+	@cp $(executable)/bin/poll ./$(NAME)
 
 build-dirty:
 	$(stack) build --ghc-options=-fforce-recomp $(package)
@@ -44,7 +55,7 @@ build-profile:
 	$(stack) --work-dir .stack-work-profiling --profile build $(package)
 
 run:
-	$(stack) build --fast && $(stack) exec -- $(binary)
+	$(stack) build --fast && $(stack) exec -- $(NAME)
 
 install:
 	$(stack) install
