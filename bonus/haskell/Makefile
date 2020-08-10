@@ -21,16 +21,11 @@ all: build sign
 re: all
 
 unit_tests:
-	#$(stack) test $(package) --work-dir .stack-work-profiling
 	$(stack) --work-dir .stack-work-profiling test --coverage
-#$(stack) test $(package) --work-dir .stack-work-profiling
 
 profiling: build-profile
 	$(stack) --work-dir .stack-work-profiling path --local-install-root
 	./test/profiling/profile.sh
-#	@cp $(profiling_executable)/bin/poll ./$(binary)
-#	stack run --profile 2 0.8 your_file -- +RTS -p
-#	cat imageCompressor.prof
 
 clean:
 	@echo "Cleaning Stack Project"

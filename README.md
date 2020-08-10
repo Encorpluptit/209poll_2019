@@ -9,16 +9,18 @@ The goal of this project is to compute the 95% and 99% confidence intervals, giv
  - Size of the sample of population.
  - Percentage of voting intentions for a specific candidate.
 
+(made with [Killian Clette](https://github.com/Skerilyo))
+
 #### Mathematical Resolution:
 People follows a Bernoulli process, and therefore that a binomial distribution (converging toward a normal distribution) is a good model for the results.
 
 #### Usage:
- - make
- - ./poll 10000 500 42.24
+    make
+    ./poll 10000 500 42.24
 
 #### Help:
- - ./poll -h
- - ./poll --help
+    ./poll -h
+    ./poll --help
 
 
 ## Skills Learned/Upgraded
